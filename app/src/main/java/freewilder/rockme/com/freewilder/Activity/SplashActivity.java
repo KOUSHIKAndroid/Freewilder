@@ -1,7 +1,9 @@
-package freewilder.rockme.com.freewilder;
+package freewilder.rockme.com.freewilder.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import freewilder.rockme.com.freewilder.R;
 
 public class SplashActivity extends AppCompatActivity {
 

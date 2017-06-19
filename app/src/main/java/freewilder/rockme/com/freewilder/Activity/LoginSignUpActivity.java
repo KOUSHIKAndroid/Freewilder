@@ -1,4 +1,4 @@
-package freewilder.rockme.com.freewilder;
+package freewilder.rockme.com.freewilder.Activity;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,8 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Toast;
+
+import freewilder.rockme.com.freewilder.R;
 
 /**
  * Created by su on 6/19/17.
