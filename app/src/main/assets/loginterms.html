@@ -1,0 +1,41 @@
+<html xmlns:line-height="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; user-scalable=0;" />
+    <script language="javascript">
+
+ function saveId(_id)
+{
+ <!--window.open("http://www.w3schools.com");-->
+    localStorage.setItem("id", _id);
+    Android.nextScreen(_id);
+}
+ function callFromActivity(msg,msg_,msg1,msg2,msg3){
+     document.getElementById("confirmtext").innerHTML = msg;
+     document.getElementById("confirmtext_").innerHTML = msg_;
+     document.getElementById("confirmtext1").innerHTML = msg1;
+     document.getElementById("confirmtext2").innerHTML = msg2;
+     document.getElementById("confirmtext3").innerHTML = msg3;
+   }
+
+    </script>
+</head>
+
+<body>
+
+<p align="justify">
+    <!--<div  style="width:100%;">-->
+    <span id="confirmtext"  style="color:white;">TTHouse Rules</span>
+    <span id="confirmtext_" style="color:white;">TTHouse Rules</span>
+    <!--<span id="confirmtext1" onclick="saveId('1');" style="color:#f00;">TTHouse Rules</span>-->
+    <span id="confirmtext1" onclick="saveId('1');" style="color:#FFBC5C;text-decoration: underline;">TTHouse Rules</span>
+    <span id="confirmtext2" onclick="saveId('2');" style="color:#FFBC5C;text-decoration: underline;">TTHouse Rules</span>
+    <span id="confirmtext3" onclick="saveId('3');" style="color:#FFBC5C;text-decoration: underline;">TTHouse Rules</span>.
+    <!--</div>-->
+</p>
+
+</body>
+</html>
+
+
