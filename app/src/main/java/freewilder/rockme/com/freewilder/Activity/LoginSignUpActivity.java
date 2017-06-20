@@ -2,14 +2,18 @@ package freewilder.rockme.com.freewilder.Activity;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -31,12 +35,18 @@ public class LoginSignUpActivity extends AppCompatActivity {
     WebView LocalWeb;
     AppPopup appPopup;
     AppLoader loader;
+    LinearLayout LLEmailSignUp;
+    RelativeLayout RLFacebookLogin;
     private static final String LOCAL_URL = "file:///android_asset/loginterms.html";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin_signup);
+
+        LLEmailSignUp= (LinearLayout) findViewById(R.id.LLEmailSignUp);
+        RLFacebookLogin= (RelativeLayout) findViewById(R.id.RLFacebookLogin);
+
         LocalWeb = (WebView) findViewById(R.id.LocalWeb);
         LocalWeb.setBackgroundColor(Color.TRANSPARENT);
         appPopup = new AppPopup(this);
@@ -48,7 +58,22 @@ public class LoginSignUpActivity extends AppCompatActivity {
         LocalWeb.addJavascriptInterface(new WebAppInterface(this), "Android");
         LocalWeb.loadUrl(LOCAL_URL);
         LocalWeb.setWebChromeClient(new MyWebViewClient());
+
+        LLEmailSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginSignUpActivity.this,SignUpActivity.class));
+            }
+        });
+
+        RLFacebookLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginSignUpActivity.this,DashBoardActivity.class));
+            }
+        });
     }
+
 
 
     public class WebAppInterface {
@@ -128,5 +153,4 @@ public class LoginSignUpActivity extends AppCompatActivity {
             }
         }
     }
-
 }

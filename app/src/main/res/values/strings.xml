@@ -18,5 +18,12 @@
     <string name="menu_collection">Collection</string>
     <string name="menu_message">Message</string>
     <string name="menu_sidemenu">SideMenu</string>
+    <string name="for_you">For You</string>
+    <string name="filter">Filter</string>
+    <string name="sign_up_name">Name</string>
+    <string name="sign_up_email_password"><![CDATA[Email & Password]]></string>
+    <string name="sign_up_gender">Gender</string>
+    <string name="sign_up_birthday">Birthday</string>
+    <string name="sign_up_next">Next</string>
 
 </resources>

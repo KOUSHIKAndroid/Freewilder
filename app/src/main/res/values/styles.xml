@@ -13,4 +13,23 @@
     </style>
 
 
+    <style name="GreenTextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorGreen</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <!--EditText hint color-->
+        <item name="android:textColorHint">@color/colorGray</item>
+
+        <item name="colorControlNormal">@color/colorGray</item>
+        <!-- EditText line color when EditText on-focus-->
+        <item name="android:textSize">16sp</item>
+
+        <item name="colorControlActivated">@color/colorGreen</item>
+        <!-- EditText line color when EditText  in un-focus-->
+    </style>
+
+
 </resources>
