@@ -13,5 +13,10 @@
     <string name="terms_of_service">Terms of service,</string>
     <string name="payments_terms_of_service">Payments Terms of service,</string>
     <string name="privacy_policy">Privacy Policy.</string>
+    <string name="menu_dashboard">Dashboard</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_collection">Collection</string>
+    <string name="menu_message">Message</string>
+    <string name="menu_sidemenu">SideMenu</string>
 
 </resources>

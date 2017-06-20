@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/mainbg">
 
-
     <RelativeLayout
         android:id="@+id/RLFacebookLogin"
         android:layout_width="match_parent"
