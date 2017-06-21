@@ -31,7 +31,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_margin="50dp"
+        android:layout_margin="30dp"
         android:gravity="center"
         android:layout_below="@id/LLToolbar"
         android:orientation="vertical"
