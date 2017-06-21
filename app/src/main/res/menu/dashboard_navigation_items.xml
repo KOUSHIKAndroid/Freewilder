@@ -8,16 +8,16 @@
 
     <item android:id="@+id/action_search"
         android:title="@string/menu_search"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_search_dashboard_bottom_bar"
        />
 
     <item android:id="@+id/action_collection"
         android:title="@string/menu_collection"
-        android:icon="@mipmap/ic_launcher" />
+        android:icon="@drawable/ic_shopping_cart_dashboard_bottom_bar" />
 
     <item android:id="@+id/action_message"
         android:title="@string/menu_message"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_message_dashboard_bottom_bar"
         />
     <item android:id="@+id/action_sidemenu"
         android:title="@string/menu_sidemenu"
