@@ -12,28 +12,27 @@ import freewilder.rockme.com.freewilder.Activity.SignUpActivity;
 import freewilder.rockme.com.freewilder.R;
 
 /**
- * Created by su on 6/13/17.
+ * Created by su on 6/21/17.
  */
 
-public class BirthdaySignUpFragment extends Fragment {
+public class TermsPrivacySignUp extends Fragment {
 
-    TextView tv_next;
+    TextView tv_sign_up;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        return super.onCreateView(inflater, container, savedInstanceState);
-        return inflater.inflate(R.layout.fragment_birthday_sign_up, container, false);
-
+        return inflater.inflate(R.layout.fragment_terms_privacy_sign_up, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tv_next= (TextView) view.findViewById(R.id.tv_next);
-        tv_next.setOnClickListener(new View.OnClickListener() {
+
+        tv_sign_up= (TextView) view.findViewById(R.id.tv_sign_up);
+        tv_sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SignUpActivity) getActivity()).nextPage(4);
+                ((SignUpActivity) getActivity()).nextPage(5);
             }
         });
     }

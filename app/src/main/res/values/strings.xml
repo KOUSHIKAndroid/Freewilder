@@ -25,5 +25,15 @@
     <string name="sign_up_gender">Gender</string>
     <string name="sign_up_birthday">Birthday</string>
     <string name="sign_up_next">Next</string>
+    <string name="finishing_signing_up">Finishing Signing Up</string>
+    <string name="finishing_signup_details">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry\'s standard dummy</string>
+    <string name="contact_sign_up">Contact</string>
+    <string name="contact_details">Contrary to popular belief,Lorem lpsum is not simply random text.It has roots in a piece of classical Latin literature from 45 bc,making it over 2000 years old.Richard McClintock,a Latin professor at Hampden-Sydney College in Virginia looked</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_terms_privacy"><![CDATA[Terms & Privacy]]></string>
+    <string name="sign_up_verify">Verify</string>
+    <string name="account_activation_signup">Account Activation</string>
+    <string name="account_activation_details_signup"><![CDATA[Please check your email we have send you activation code,please put the code bellow the box & continue]]></string>
+    <string name="verify_sign_up">Verify</string>
 
 </resources>

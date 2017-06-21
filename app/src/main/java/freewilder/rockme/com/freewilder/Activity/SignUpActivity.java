@@ -13,6 +13,8 @@ import freewilder.rockme.com.freewilder.fragments.BirthdaySignUpFragment;
 import freewilder.rockme.com.freewilder.fragments.EmailPasswordSignUpFragment;
 import freewilder.rockme.com.freewilder.fragments.GenderSignUpFragment;
 import freewilder.rockme.com.freewilder.fragments.NameSignUpFragment;
+import freewilder.rockme.com.freewilder.fragments.TermsPrivacySignUp;
+import freewilder.rockme.com.freewilder.fragments.VerifyFragmentSignUp;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -70,6 +72,21 @@ public class SignUpActivity extends AppCompatActivity {
                 BirthdaySignUpFragment f3 = new BirthdaySignUpFragment();
                 fragmentTransaction=fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, f3);
+                fragmentTransaction.commit();
+                break;
+            case 4:
+                tv_toolText.setText(getResources().getString(R.string.sign_up_terms_privacy));
+                TermsPrivacySignUp f4 = new TermsPrivacySignUp();
+                fragmentTransaction=fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, f4);
+                fragmentTransaction.commit();
+                break;
+
+            case 5:
+                tv_toolText.setText(getResources().getString(R.string.sign_up_verify));
+                VerifyFragmentSignUp f5 = new VerifyFragmentSignUp();
+                fragmentTransaction=fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, f5);
                 fragmentTransaction.commit();
                 break;
         }
