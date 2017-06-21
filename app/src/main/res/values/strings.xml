@@ -26,14 +26,28 @@
     <string name="sign_up_birthday">Birthday</string>
     <string name="sign_up_next">Next</string>
     <string name="finishing_signing_up">Finishing Signing Up</string>
-    <string name="finishing_signup_details">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry\'s standard dummy</string>
-    <string name="contact_sign_up">Contact</string>
-    <string name="contact_details">Contrary to popular belief,Lorem lpsum is not simply random text.It has roots in a piece of classical Latin literature from 45 bc,making it over 2000 years old.Richard McClintock,a Latin professor at Hampden-Sydney College in Virginia looked</string>
+    <string name="finishing_signing_up_details">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry\'s standard dummy</string>
+    <string name="sign_up_contact">Contact</string>
+    <string name="sign_up_contact_details">Contrary to popular belief,Lorem lpsum is not simply random text.It has roots in a piece of classical Latin literature from 45 bc,making it over 2000 years old.Richard McClintock,a Latin professor at Hampden-Sydney College in Virginia looked</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_up_terms_privacy"><![CDATA[Terms & Privacy]]></string>
     <string name="sign_up_verify">Verify</string>
     <string name="account_activation_signup">Account Activation</string>
-    <string name="account_activation_details_signup"><![CDATA[Please check your email we have send you activation code,please put the code bellow the box & continue]]></string>
-    <string name="verify_sign_up">Verify</string>
+    <string name="sign_up_account_activation_details"><![CDATA[Please check your email we have send you activation code,please put the code bellow the box & continue]]></string>
+    <string name="sign_up_whats_your_birthday">What\'s Your Birthday?</string>
+    <string name="sign_up_pick_your_date">Pick your date</string>
+    <string name="sign_up_please_enter_your_email_and_provide_your_password">Please enter your email and provide your Password</string>
+    <string name="sign_up_whats_your_email_and_password"><![CDATA[What\'s Your Email &amp; Password?]]></string>
+    <string name="sign_up_email">Email</string>
+    <string name="sign_up_password">Password</string>
+    <string name="sign_up_confirm_password">Confirm Password</string>
+    <string name="sign_up_male">Male</string>
+    <string name="sign_up_female">Female</string>
+    <string name="sign_up_please_provide_your_gender">Please provide your gender</string>
+    <string name="sign_up_whats_your_gender">What\'s Your Gender?</string>
+    <string name="sign_up_whats_your_name">What\'s Your Name?</string>
+    <string name="sign_up_please_enter_first_and_last_name">Please enter first and last name</string>
+    <string name="sign_up_first_name">First Name</string>
+    <string name="sign_up_last_name">Last Name</string>
 
 </resources>

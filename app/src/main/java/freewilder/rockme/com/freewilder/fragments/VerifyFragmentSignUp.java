@@ -12,10 +12,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.TextView;
-
 import freewilder.rockme.com.freewilder.R;
 
 /**
@@ -65,7 +61,8 @@ public class VerifyFragmentSignUp extends Fragment{
                 // TODO Auto-generated method stub
                 Log.i("sb1"," "+sb.length());
                 Log.i("editText1"," "+editText1.length());
-                if(sb.length()==0 & editText1.length()==1)
+
+                if(sb.length()==0 && editText1.length()==1)
                 {
                     Log.i("horibol"," "+s+" "+editText1);
                     sb.append(s);
@@ -86,6 +83,18 @@ public class VerifyFragmentSignUp extends Fragment{
                 {
                     editText1.requestFocus();
                 }
+            }
+        });
+
+        input_value1.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                //You can identify which key pressed buy checking keyCode value with KeyEvent.KEYCODE_
+                if(keyCode == KeyEvent.KEYCODE_DEL) {
+                    //this is for backspace
+                    Log.i("del key","del key");
+                }
+                return false;
             }
         });
     }
