@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,8 +66,8 @@ public class NameSignUpFragment extends Fragment {
                         input_last_name.requestFocus();
 
                     }else {
-
                         input_layout_last_name.setErrorEnabled(false);
+                        Log.i("horiname",""+input_first_name.length());
                         ((SignUpActivity)getActivity()).nextPage(1);
                     }
                 }

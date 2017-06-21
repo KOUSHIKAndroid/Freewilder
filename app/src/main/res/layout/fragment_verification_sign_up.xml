@@ -60,24 +60,22 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_weight="1"
+            android:id="@+id/input_layout_value2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/input_layout_value2"
-            app:hintTextAppearance="@style/GreenTextInputLayout"
-            >
+            android:layout_weight="1"
+            app:hintTextAppearance="@style/GreenTextInputLayout">
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/input_value2"
-                android:textSize="30sp"
-                android:maxLength="1"
-                android:digits="0123456789"
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:maxLength="1"
                 android:nextFocusRight="@+id/input_value3"
-                android:theme="@style/MyEditText"
-                />
+                android:textSize="30sp"
+                android:theme="@style/MyEditText" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
