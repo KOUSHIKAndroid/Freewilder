@@ -157,8 +157,5 @@
             android:background="@color/colorRed"
             android:textColor="@color/colorWhite"/>
 
-
-
-
     </RelativeLayout>
 </ScrollView>
