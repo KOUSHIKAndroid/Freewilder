@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import freewilder.rockme.com.freewilder.Activity.SignUpActivity;
@@ -23,6 +24,7 @@ public class GenderSignUpFragment extends Fragment implements CompoundButton.OnC
 
     TextView tv_next;
     RadioButton male_radio_button,female_radio_button;
+    RelativeLayout RLMale,RLFemale;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
@@ -33,6 +35,28 @@ public class GenderSignUpFragment extends Fragment implements CompoundButton.OnC
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         tv_next= (TextView) view.findViewById(R.id.tv_next);
+
+        RLMale= (RelativeLayout) view.findViewById(R.id.RLMale);
+        RLFemale= (RelativeLayout) view.findViewById(R.id.RLFemale);
+
+
+        RLMale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                male_radio_button.setChecked(true);
+                female_radio_button.setChecked(false);
+            }
+        });
+
+
+        RLFemale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                male_radio_button.setChecked(false);
+                female_radio_button.setChecked(true);
+            }
+        });
+
 
         male_radio_button= (RadioButton) view.findViewById(R.id.male_radio_button);
         male_radio_button.setOnCheckedChangeListener(this);

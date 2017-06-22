@@ -25,6 +25,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/RLMale"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="50dp">
@@ -61,6 +62,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/RLFemale"
             android:layout_width="match_parent"
             android:layout_height="54dp">
 
