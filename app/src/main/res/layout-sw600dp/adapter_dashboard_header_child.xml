@@ -71,7 +71,7 @@
                     android:id="@+id/edit_search"
                     android:background="@android:color/transparent"
                     android:hint="Drobin Poland"
-                    android:paddingLeft="35dp"
+                    android:paddingLeft="45dp"
                     android:textSize="18sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
@@ -80,8 +80,8 @@
                     android:layout_marginLeft="5dp"
                     android:src="@drawable/ic_blank_map_pointer_dashbord"
                     android:layout_centerVertical="true"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp" />
+                    android:layout_width="24dp"
+                    android:layout_height="24dp" />
 
             </RelativeLayout>
 
