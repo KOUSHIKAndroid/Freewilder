@@ -69,7 +69,9 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/tv_type"
                     android:background="#40000000"
-                    android:paddingBottom="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Best Local Food"
                     android:textColor="@color/colorWhite"
                     android:textSize="22sp" />

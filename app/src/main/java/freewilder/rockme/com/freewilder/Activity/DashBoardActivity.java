@@ -47,6 +47,5 @@ public class DashBoardActivity extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 }
