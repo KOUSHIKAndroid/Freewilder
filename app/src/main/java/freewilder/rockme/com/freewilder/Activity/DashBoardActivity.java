@@ -9,9 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-
 import java.util.ArrayList;
-
 import freewilder.rockme.com.freewilder.R;
 import freewilder.rockme.com.freewilder.adapters.DashboardRecyclerViewAdapter;
 import freewilder.rockme.com.freewilder.pojo.SetGetDashboard;
