@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_marginTop="24dp"
+            android:id="@+id/LLToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/colorToolbarGray"
+            >
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/img_back"
+                android:padding="17dp"
+                android:src="@drawable/ic_left_arrow"
+                android:layout_width="54dp"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/img_back"
+                android:id="@+id/tv_toolText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/invite_friend"
+                android:paddingLeft="10dp"
+                android:textColor="@color/colorGreen"/>
+
+            <ImageView
+                android:id="@+id/img_more"
+                android:layout_alignParentRight="true"
+                android:layout_width="54dp"
+                android:padding="15dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_vector_more"/>
+
+            <ImageView
+                android:id="@+id/serachA"
+                android:layout_toLeftOf="@+id/img_more"
+                android:layout_width="54dp"
+                android:padding="18dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_invite_friend_search"/>
+
+            <LinearLayout
+                android:id="@+id/LLSearch"
+                android:background="@drawable/topbart"
+                android:layout_width="match_parent"
+                android:layout_marginRight="50dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/back3"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    >
+
+                    <ImageView
+                        android:id="@+id/img_back_search"
+                        android:padding="17dp"
+                        android:src="@drawable/ic_left_arrow"
+                        android:layout_width="54dp"
+                        android:layout_height="match_parent"
+                        android:clickable="false"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/EDXfind"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:hint="e.g. john doe"
+                        android:maxLines="1"/>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lvToDoList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_vector_send_mail"
+        app:layout_anchor="@id/lvToDoList"
+        android:backgroundTint="@color/colorGreen"
+        app:layout_anchorGravity="bottom|right|end"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:fabSize="normal"/>
+
+</android.support.design.widget.CoordinatorLayout>

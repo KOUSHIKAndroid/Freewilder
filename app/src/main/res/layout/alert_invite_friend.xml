@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/colorToolbarGray"
+        >
+
+        <TextView
+            android:paddingLeft="16dp"
+            android:id="@+id/tv_title"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorGreen"
+            android:hint="@string/invite_alert_filter"
+            android:textColorHint="@color/colorGreen"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:paddingRight="10dp"
+            android:id="@+id/img_cross"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_invite_friend_cross"
+            android:layout_width="54dp"
+            android:padding="16dp"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:gravity="center"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <TextView
+        android:gravity="center"
+        android:text="@string/invite_friend_email"
+        android:textColor="@color/colorBlack"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="#00BF8F"
+            app:hintTextAppearance="@style/GreenTextInputLayout"
+            >
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:inputType="text"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:paddingLeft="50dp"
+                android:theme="@style/MyEditText"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+        <ImageView
+            android:layout_marginLeft="6dp"
+            android:src="@drawable/ic_invite_friend_mail"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_send_invite"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/colorRed"
+        android:gravity="center"
+        android:text="@string/invite_send_invite"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+
+
+</LinearLayout>

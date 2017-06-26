@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import freewilder.rockme.com.freewilder.Activity.SignUpActivity;
 import freewilder.rockme.com.freewilder.R;
 

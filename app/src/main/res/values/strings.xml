@@ -49,5 +49,12 @@
     <string name="sign_up_please_enter_first_and_last_name">Please enter first and last name</string>
     <string name="sign_up_first_name">First Name</string>
     <string name="sign_up_last_name">Last Name</string>
+    <string name="invite_friend">Invite Friend</string>
+    <string name="select_all">Select All</string>
+    <string name="deselect_all">Deselect All</string>
+    <string name="invite_new_friend">Invite New Friend</string>
+    <string name="invite_send_invite">Send Invite</string>
+    <string name="invite_friend_email">Email</string>
+    <string name="invite_alert_filter">Share your love of freedom</string>
 
 </resources>
