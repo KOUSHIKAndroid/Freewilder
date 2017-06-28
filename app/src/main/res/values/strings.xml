@@ -56,5 +56,8 @@
     <string name="invite_send_invite">Send Invite</string>
     <string name="invite_friend_email">Email</string>
     <string name="invite_alert_filter">Share your love of freedom</string>
+    <string name="need_to_contact_permission_for_this_app">Need To Contact Permission for This App</string>
+    <string name="read_contact_permission_available">Read Contact Permission Available</string>
+    <string name="ok">OK</string>
 
 </resources>

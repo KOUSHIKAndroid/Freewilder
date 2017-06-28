@@ -10,6 +10,7 @@
     <color name="colorYellow">#FFBC5C</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#ff888888</color>
+    <color name="colorGrayBackGround">#F3F3F3</color>
     <color name="colorRed">#ffFF3C4B</color>
     <color name="colorToolbarGray">#E9E9E9</color>
 

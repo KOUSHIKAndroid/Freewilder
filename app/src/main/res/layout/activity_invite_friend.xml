@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -90,7 +91,8 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="10dp"
                         android:hint="e.g. john doe"
-                        android:maxLines="1"/>
+                        android:maxLines="1"
+                        android:theme="@style/MyEditText"/>
 
 
                 </RelativeLayout>
@@ -99,23 +101,23 @@
 
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <freewilder.rockme.com.freewilder.customlistview.IndexableListView
             android:id="@+id/lvToDoList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"></freewilder.rockme.com.freewilder.customlistview.IndexableListView>
 
     </LinearLayout>
+
     <android.support.design.widget.FloatingActionButton
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
+        android:layout_margin="40dp"
         android:src="@drawable/ic_vector_send_mail"
-        app:layout_anchor="@id/lvToDoList"
         android:backgroundTint="@color/colorGreen"
-        app:layout_anchorGravity="bottom|right|end"
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:fabSize="normal"/>
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>
