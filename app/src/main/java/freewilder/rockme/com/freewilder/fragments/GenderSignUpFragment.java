@@ -3,7 +3,6 @@ package freewilder.rockme.com.freewilder.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 
 import freewilder.rockme.com.freewilder.Activity.SignUpActivity;
 import freewilder.rockme.com.freewilder.R;
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 
 /**
  * Created by su on 6/13/17.
@@ -76,7 +76,7 @@ public class GenderSignUpFragment extends Fragment implements CompoundButton.OnC
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-        Log.i("Log check",""+isChecked);
+        AppLog.info("Log check",""+isChecked);
 
         if (isChecked) {
             if (buttonView.getId() == R.id.male_radio_button) {

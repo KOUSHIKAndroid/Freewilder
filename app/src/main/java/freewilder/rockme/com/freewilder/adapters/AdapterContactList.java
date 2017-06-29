@@ -2,7 +2,6 @@ package freewilder.rockme.com.freewilder.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,29 +14,30 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import freewilder.rockme.com.freewilder.R;
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 import freewilder.rockme.com.freewilder.customlistview.StringMatcher;
 import freewilder.rockme.com.freewilder.helper.CircleTransform;
 import freewilder.rockme.com.freewilder.helper.TextDrawable;
-import freewilder.rockme.com.freewilder.pojo.ContactList;
+import freewilder.rockme.com.freewilder.pojo.SetGetContact;
 
 /**
  * Created by su on 6/28/17.
  */
 
-public class AdapterContactList extends ArrayAdapter<ContactList> implements SectionIndexer {
+public class AdapterContactList extends ArrayAdapter<SetGetContact> implements SectionIndexer {
     LayoutInflater Minflater;
-    ArrayList<ContactList> LIST;
-    ArrayList<ContactList> FilteredList;
+    ArrayList<SetGetContact> LIST;
+    ArrayList<SetGetContact> FilteredList;
     private CountryFilter filter;
     Context Ctx;
     private static String sections = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-    public AdapterContactList(Context context, int resource, ArrayList<ContactList> contactListPhone) {
+    public AdapterContactList(Context context, int resource, ArrayList<SetGetContact> setGetContactPhone) {
         super(context, resource);
         this.Ctx = context;
-        this.LIST = contactListPhone;
-        this.FilteredList = contactListPhone;
+        this.LIST = setGetContactPhone;
+        this.FilteredList = setGetContactPhone;
         Minflater = (LayoutInflater) Ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -49,7 +49,7 @@ public class AdapterContactList extends ArrayAdapter<ContactList> implements Sec
 
 
     @Override
-    public ContactList getItem(int position) {
+    public SetGetContact getItem(int position) {
         return LIST.get(position);
     }
 
@@ -79,7 +79,7 @@ public class AdapterContactList extends ArrayAdapter<ContactList> implements Sec
 
     @Override
     public Object[] getSections() {
-        Log.d("ListView", "Get sections");
+        AppLog.info("ListView", "Get sections");
         String[] sectionsArr = new String[sections.length()];
         for (int i=0; i < sections.length(); i++)
             sectionsArr[i] = "" + sections.charAt(i);
@@ -112,7 +112,7 @@ public class AdapterContactList extends ArrayAdapter<ContactList> implements Sec
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-//        ContactList rowitem=getItem(position);
+//        SetGetContact rowitem=getItem(position);
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
@@ -153,13 +153,13 @@ public class AdapterContactList extends ArrayAdapter<ContactList> implements Sec
 
                 if (LIST.get(position).isCheck()) {
                     LIST.get(position).setCheck(false);
-                    Log.i("ContactListWithEmailID" + position, "" + LIST.get(position).isCheck());
+                    AppLog.info("setGetContactWithEmailID" + position, "" + LIST.get(position).isCheck());
                 } else {
                     LIST.get(position).setCheck(true);
-                    Log.i("ContactListWithEmailID" + position, "" + LIST.get(position).isCheck());
+                    AppLog.info("setGetContactWithEmailID" + position, "" + LIST.get(position).isCheck());
                 }
 
-                Log.i("Long press","Long press");
+                AppLog.info("Long press","Long press");
 
                 notifyDataSetChanged();
 
@@ -178,10 +178,10 @@ public class AdapterContactList extends ArrayAdapter<ContactList> implements Sec
             constraint = constraint.toString().toLowerCase();
             FilterResults result = new FilterResults();
             if (constraint != null && constraint.toString().length() > 0) {
-                ArrayList<ContactList> filteredItems = new ArrayList<ContactList>();
+                ArrayList<SetGetContact> filteredItems = new ArrayList<SetGetContact>();
 
                 for (int i = 0, l = FilteredList.size(); i < l; i++) {
-                    ContactList country = FilteredList.get(i);
+                    SetGetContact country = FilteredList.get(i);
                     if (country.getName().toLowerCase().contains(constraint))
                         filteredItems.add(country);
                 }
@@ -200,7 +200,7 @@ public class AdapterContactList extends ArrayAdapter<ContactList> implements Sec
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
 
-            LIST = (ArrayList<ContactList>) results.values;
+            LIST = (ArrayList<SetGetContact>) results.values;
             notifyDataSetChanged();
             clear();
             for (int i = 0, l = LIST.size(); i < l; i++) {

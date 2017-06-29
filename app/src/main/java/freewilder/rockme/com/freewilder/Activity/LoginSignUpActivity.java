@@ -26,6 +26,7 @@ import freewilder.rockme.com.freewilder.Json.URLPaser;
 import freewilder.rockme.com.freewilder.Popups.AppPopup;
 import freewilder.rockme.com.freewilder.R;
 import freewilder.rockme.com.freewilder.Utils.AppLoader;
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 
 /**
  * Created by su on 6/19/17.
@@ -147,7 +148,7 @@ public class LoginSignUpActivity extends AppCompatActivity {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
             super.onProgressChanged(view, newProgress);
-            Log.d("Progress", "" + newProgress);
+            AppLog.info("Progress", "" + newProgress);
             if (newProgress == 100) {
                 view.loadUrl("javascript:callFromActivity(\"" + ("" + getResources().getString(R.string.by_tapping_login_with_facebook_sign_up_i_agree_to)) + "\",\"" + ("" + getResources().getString(R.string.freewilders)) + "\",\"" + ("" + getResources().getString(R.string.terms_of_service)) + "\",\"" + ("" + getResources().getString(R.string.payments_terms_of_service)) + "\",\"" + ("" + getResources().getString(R.string.privacy_policy)) + "\")");
             }

@@ -8,7 +8,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-import freewilder.rockme.com.freewilder.pojo.ContactList;
+import freewilder.rockme.com.freewilder.pojo.SetGetContact;
 
 
 public class AppController extends Application {
@@ -20,7 +20,7 @@ public class AppController extends Application {
     public static String userid = "30";
 
     private static AppController mInstance;
-    public ArrayList<ContactList> ContactListWithEmailID;
+    public ArrayList<SetGetContact> setGetContactWithEmailID;
 
     @Override
     public void onCreate() {
@@ -28,7 +28,7 @@ public class AppController extends Application {
         mInstance = this;
         String timeStamp = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()) + "";
         Log.e("MAIN/ APPLICATION---->"," "+timeStamp);
-        ContactListWithEmailID=new ArrayList<>();
+        setGetContactWithEmailID =new ArrayList<>();
     }
 
     public static synchronized AppController getInstance() {

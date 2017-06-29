@@ -19,7 +19,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -31,16 +30,21 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.TimeZone;
+
 import freewilder.rockme.com.freewilder.Json.URLPaser;
 import freewilder.rockme.com.freewilder.R;
+import freewilder.rockme.com.freewilder.Utils.AppLoader;
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 import freewilder.rockme.com.freewilder.adapters.AdapterContactList;
 import freewilder.rockme.com.freewilder.customlistview.IndexableListView;
 import freewilder.rockme.com.freewilder.helper.AppController;
 import freewilder.rockme.com.freewilder.helper.PermissionUtil;
-import freewilder.rockme.com.freewilder.pojo.ContactList;
+import freewilder.rockme.com.freewilder.pojo.SetGetContact;
 
 /**
  * Created by su on 6/26/17.
@@ -52,8 +56,8 @@ public class InviteFriendActivity extends AppCompatActivity {
 
     private static final int REQUEST_CONTACTS = 1;
 
-    int count=0;
-
+    int count = 0;
+    AppLoader Loader;
     String InvitionEmailIDs = "";
 
     AdapterContactList Adapter;
@@ -78,13 +82,13 @@ public class InviteFriendActivity extends AppCompatActivity {
 
     String sortOrder = ContactsContract.Contacts.DISPLAY_NAME + " COLLATE LOCALIZED ASC";
 
-    ImageView img_more,serachA;
+    ImageView img_more, serachA;
 
     private View mLayout;
 
     SharedPreferences preferences;
 
-    LinearLayout LLSearch,back3;
+    LinearLayout LLSearch, back3;
 
     EditText EDXfind;
 
@@ -93,7 +97,9 @@ public class InviteFriendActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invite_friend);
-        img_more= (ImageView) findViewById(R.id.img_more);
+        img_more = (ImageView) findViewById(R.id.img_more);
+
+        Loader = new AppLoader(this);
 
         LLSearch = (LinearLayout) findViewById(R.id.LLSearch);
 
@@ -101,7 +107,7 @@ public class InviteFriendActivity extends AppCompatActivity {
 
         listviewContact = (IndexableListView) findViewById(R.id.lvToDoList);
 
-        serachA= (ImageView) findViewById(R.id.serachA);
+        serachA = (ImageView) findViewById(R.id.serachA);
         EDXfind = (EditText) findViewById(R.id.EDXfind);
         back3 = (LinearLayout) findViewById(R.id.back3);
 
@@ -127,14 +133,14 @@ public class InviteFriendActivity extends AppCompatActivity {
                 EDXfind.setText("");
                 EDXfind.requestFocus();
                 InputMethodManager imm = (InputMethodManager) getSystemService(InviteFriendActivity.this.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT,0);
+                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
             }
         });
 
         EDXfind.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                Log.i("TOUCH",""+motionEvent.getAction());
+                AppLog.info("TOUCH", "" + motionEvent.getAction());
                 EDXfind.clearFocus();
                 EDXfind.requestFocus();
                 return false;
@@ -172,20 +178,18 @@ public class InviteFriendActivity extends AppCompatActivity {
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         if (item.getTitle().toString().equals(getResources().getString(R.string.select_all))) {
-                            for (int i = 0; i < AppController.getInstance().ContactListWithEmailID.size(); i++) {
-                                AppController.getInstance().ContactListWithEmailID.get(i).setCheck(true);
+                            for (int i = 0; i < AppController.getInstance().setGetContactWithEmailID.size(); i++) {
+                                AppController.getInstance().setGetContactWithEmailID.get(i).setCheck(true);
                             }
                             Adapter.notifyDataSetChanged();
                             //Toast.makeText(InviteFriendActivity.this,"Select all",Toast.LENGTH_SHORT).show();
-                        }
-                        else if(item.getTitle().toString().equals(getResources().getString(R.string.deselect_all))){
-                            for (int i = 0; i < AppController.getInstance().ContactListWithEmailID.size(); i++) {
-                                AppController.getInstance().ContactListWithEmailID.get(i).setCheck(false);
+                        } else if (item.getTitle().toString().equals(getResources().getString(R.string.deselect_all))) {
+                            for (int i = 0; i < AppController.getInstance().setGetContactWithEmailID.size(); i++) {
+                                AppController.getInstance().setGetContactWithEmailID.get(i).setCheck(false);
                             }
                             Adapter.notifyDataSetChanged();
                             //Toast.makeText(InviteFriendActivity.this,"Deselect all",Toast.LENGTH_SHORT).show();
-                        }
-                        else {
+                        } else {
                             //Toast.makeText(InviteFriendActivity.this,"Invite new Friend",Toast.LENGTH_SHORT).show();
                             createCustomeInviteAlert();
                         }
@@ -204,27 +208,27 @@ public class InviteFriendActivity extends AppCompatActivity {
 
             return;
         } else {
-            Log.d("VERSION", "MARSHMALLOW");
+            AppLog.info("VERSION", "MARSHMALLOW");
             CheckContactPermission();
         }
 
 
     }
 
-    public void createCustomeInviteAlert(){
+    public void createCustomeInviteAlert() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.alert_invite_friend, null);
         dialogBuilder.setView(dialogView);
 
-        final AppCompatEditText input_email= (AppCompatEditText) dialogView.findViewById(R.id.input_email);
-        TextView tv_send_invite= (TextView) dialogView.findViewById(R.id.tv_send_invite);
-        final TextInputLayout input_layout_email= (TextInputLayout) dialogView.findViewById(R.id.input_layout_email);
+        final AppCompatEditText input_email = (AppCompatEditText) dialogView.findViewById(R.id.input_email);
+        TextView tv_send_invite = (TextView) dialogView.findViewById(R.id.tv_send_invite);
+        final TextInputLayout input_layout_email = (TextInputLayout) dialogView.findViewById(R.id.input_layout_email);
 
-        ImageView img_cross= (ImageView) dialogView.findViewById(R.id.img_cross);
+        ImageView img_cross = (ImageView) dialogView.findViewById(R.id.img_cross);
 
-        alertDialog= dialogBuilder.create();
+        alertDialog = dialogBuilder.create();
         //To prevent dialog box from getting dismissed on back key pressed use this
         alertDialog.setCancelable(false);
 
@@ -243,20 +247,19 @@ public class InviteFriendActivity extends AppCompatActivity {
         tv_send_invite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input_email.getText().toString().equals("")){
+                if (input_email.getText().toString().equals("")) {
                     input_layout_email.setErrorEnabled(true);
                     input_layout_email.setError("Enter email address..");
-                }
-                else {
+                } else {
                     input_layout_email.setErrorEnabled(false);
 
-                    if (!isValidEmail(input_email.getText().toString())){
+                    if (!isValidEmail(input_email.getText().toString())) {
                         input_layout_email.setErrorEnabled(true);
                         input_layout_email.setError("Enter right address..");
-                    }else {
+                    } else {
                         input_layout_email.setErrorEnabled(false);
-                        Toast.makeText(InviteFriendActivity.this,"submit",Toast.LENGTH_SHORT).show();
-                        SEND_INVITION_BY_MAIL(input_email.getText().toString()+",");
+                        Toast.makeText(InviteFriendActivity.this, "submit", Toast.LENGTH_SHORT).show();
+                        SEND_INVITION_BY_MAIL(input_email.getText().toString() + ",");
                     }
                 }
             }
@@ -274,7 +277,7 @@ public class InviteFriendActivity extends AppCompatActivity {
     }
 
     private void RUNAPP_PROCESS() {
-       // ProgresDilog.show();
+        // ProgresDilog.show();
         preferences = PreferenceManager.getDefaultSharedPreferences(InviteFriendActivity.this);
         ContentResolver cr = getContentResolver();
         Cursor cursor = cr.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI, PROJECTION, SELECTION, null, sortOrder);
@@ -298,16 +301,16 @@ public class InviteFriendActivity extends AppCompatActivity {
                     displayName = cursor.getString(displayNameIndex);
                     address = cursor.getString(emailIndex);
                     photouri = cursor.getString(photo);
-                    ContactList contactList = new ContactList();
-                    contactList.setEmailID(address);
-                    contactList.setName(displayName);
-                    contactList.setPhotoUri(photouri);
+                    SetGetContact setGetContact = new SetGetContact();
+                    setGetContact.setEmailID(address);
+                    setGetContact.setName(displayName);
+                    setGetContact.setPhotoUri(photouri);
 //                    DATA.EMAILLIST_insert();
-                    AppController.getInstance().ContactListWithEmailID.add(contactList);
-                    Log.e("LIST-", contactId + "\n" + displayName + "\n" + address + "\n" + photouri);
-                    Log.e("ARARYSOZE-", "" + AppController.getInstance().ContactListWithEmailID.size());
+                    AppController.getInstance().setGetContactWithEmailID.add(setGetContact);
+                    AppLog.Error("LIST-", contactId + "\n" + displayName + "\n" + address + "\n" + photouri);
+                    AppLog.Error("ARARYSOZE-", "" + AppController.getInstance().setGetContactWithEmailID.size());
                 }
-                Adapter = new AdapterContactList(this, 0, AppController.getInstance().ContactListWithEmailID);
+                Adapter = new AdapterContactList(this, 0, AppController.getInstance().setGetContactWithEmailID);
                 listviewContact.setAdapter(Adapter);
                 listviewContact.setFastScrollEnabled(true);
                 listviewContact.setFastScrollAlwaysVisible(true);
@@ -319,7 +322,7 @@ public class InviteFriendActivity extends AppCompatActivity {
                     public void run() {
                         //ProgresDilog.dismiss();
                     }
-                },200);
+                }, 200);
             }
         }
     }
@@ -332,7 +335,7 @@ public class InviteFriendActivity extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
-            Log.i("", "Contact permissions has NOT been granted. Requesting permissions.");
+            AppLog.info("", "Contact permissions has NOT been granted. Requesting permissions.");
             requestContactsPermissions();
 
         } else {
@@ -344,7 +347,7 @@ public class InviteFriendActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
 
         if (requestCode == REQUEST_CONTACTS) {
-            Log.i("", "Received response for contact permissions request.");
+            AppLog.info("", "Received response for contact permissions request.");
 
 
             if (PermissionUtil.verifyPermissions(grantResults)) {
@@ -355,7 +358,7 @@ public class InviteFriendActivity extends AppCompatActivity {
 
                 RUNAPP_PROCESS();
             } else {
-                Log.i("", "Contacts permissions were NOT granted.");
+                AppLog.info("", "Contacts permissions were NOT granted.");
                 Snackbar.make(mLayout, getResources().getString(R.string.need_to_contact_permission_for_this_app),
                         Snackbar.LENGTH_INDEFINITE)
                         .setAction(getResources().getString(R.string.ok), new View.OnClickListener() {
@@ -381,11 +384,10 @@ public class InviteFriendActivity extends AppCompatActivity {
                         || ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.WRITE_CONTACTS)
                         && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                        != PackageManager.PERMISSION_GRANTED)
-        {
+                        != PackageManager.PERMISSION_GRANTED) {
 
-            Log.i("", "Displaying contacts permission rationale to provide additional context.");
-            Snackbar.make(mLayout,getResources().getString(R.string.need_to_contact_permission_for_this_app),
+            AppLog.info("", "Displaying contacts permission rationale to provide additional context.");
+            Snackbar.make(mLayout, getResources().getString(R.string.need_to_contact_permission_for_this_app),
                     Snackbar.LENGTH_INDEFINITE)
                     .setAction(getResources().getString(R.string.ok), new View.OnClickListener() {
                         @Override
@@ -398,7 +400,7 @@ public class InviteFriendActivity extends AppCompatActivity {
                     .show();
         } else {
             ActivityCompat.requestPermissions(this, PERMISSIONS_CONTACT, REQUEST_CONTACTS);
-            Log.d("CALL FOR", "REQUEST");
+            AppLog.info("CALL FOR", "REQUEST");
         }
     }
 
@@ -407,83 +409,83 @@ public class InviteFriendActivity extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         finish();
+        System.gc();
+        System.exit(0);
     }
 
 
-    public void send_invite(View SendInvite)
-    {
-        InvitionEmailIDs="";
-        count=0;
+    public void send_invite(View SendInvite) {
+        InvitionEmailIDs = "";
+        count = 0;
 
-        if ( AppController.getInstance().ContactListWithEmailID!=null) {
-            for (int i = 0; i <  AppController.getInstance().ContactListWithEmailID.size(); i++) {
-                if( AppController.getInstance().ContactListWithEmailID.get(i).isCheck()) {
-                    Log.d("CJE", "" + AppController.getInstance().ContactListWithEmailID.get(i).isCheck());
-                    InvitionEmailIDs = InvitionEmailIDs + AppController.getInstance().ContactListWithEmailID.get(i).getEmailID() + ",";
+        if (AppController.getInstance().setGetContactWithEmailID != null) {
+            for (int i = 0; i < AppController.getInstance().setGetContactWithEmailID.size(); i++) {
+                if (AppController.getInstance().setGetContactWithEmailID.get(i).isCheck()) {
+                    AppLog.info("CJE", "" + AppController.getInstance().setGetContactWithEmailID.get(i).isCheck());
+                    InvitionEmailIDs = InvitionEmailIDs + AppController.getInstance().setGetContactWithEmailID.get(i).getEmailID() + ",";
                     count++;
                 }
             }
-            Log.d("EMAIL=", InvitionEmailIDs);
-            if (count>0) {
+            AppLog.info("EMAIL=", InvitionEmailIDs);
+            if (count > 0) {
                 SEND_INVITION_BY_MAIL(InvitionEmailIDs);
-            }else {
+            } else {
                 Toast.makeText(InviteFriendActivity.this, getResources().getString(R.string.chose_contacts), Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private void SEND_INVITION_BY_MAIL(final String invitionEmailIDs) {
-    ////////////////////////////////////add by suraj shaw//////////////////////////////////////
-
-        TimeZone tz=TimeZone.getDefault();
+        ////////////////////////////////////add by suraj shaw//////////////////////////////////////
+        Loader.Show();
+        TimeZone tz = TimeZone.getDefault();
         String url = "app_user_service/app_invite_email?"
-                + "&cur_id="+AppController.Curency+"&lang_id="+AppController.Lang_id+"&time_zone="+tz.getID();
+                + "&cur_id=" + AppController.Curency + "&lang_id=" + AppController.Lang_id + "&time_zone=" + tz.getID();
 
-        String params[]={"email","user_id"};
-        String values[]={"" + invitionEmailIDs.substring(0, (invitionEmailIDs.length() - 1)),AppController.userid};
+        String params[] = {"email", "user_id"};
+        String values[] = {"" + invitionEmailIDs.substring(0, (invitionEmailIDs.length() - 1)), AppController.userid};
 
         ///////////////////////////////////////////////////////////////////////////////////
 
-        Log.d("URL", url + "\n" + invitionEmailIDs);
-        new URLPaser().onPostMethod(url,params,values, new URLPaser.JSONResPonse(){
+        AppLog.info("URL", url + "\n" + invitionEmailIDs);
+        new URLPaser().onPostMethod(url, params, values, new URLPaser.JSONResPonse() {
 
             @Override
             public void OnSucess(String Response) {
                 try {
-                    JSONObject jsonObject=new JSONObject(Response);
-                    Log.i("jsonObject",""+jsonObject);
+
+                    Loader.Dissmiss();
+
+                    JSONObject jsonObject = new JSONObject(Response);
+                    AppLog.info("jsonObject", "" + jsonObject);
 
                     Toast.makeText(InviteFriendActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
 
-                    for (int i=0;i<AppController.getInstance().ContactListWithEmailID.size();i++) {
-                        AppController.getInstance().ContactListWithEmailID.get(i).setCheck(false);
+                    for (int i = 0; i < AppController.getInstance().setGetContactWithEmailID.size(); i++) {
+                        AppController.getInstance().setGetContactWithEmailID.get(i).setCheck(false);
                     }
                     Adapter.notifyDataSetChanged();
                     InvitionEmailIDs = "";
-                    count=0;
+                    count = 0;
 
 
-
-                    if(jsonObject.getString("response").equals("success"))
-                    {
+                    if (jsonObject.getString("response").equals("success")) {
                         if (alertDialog != null) {
                             alertDialog.dismiss();
                             alertDialog = null;
                         }
                     }
-                    else {
-
-                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Log.i("JSONException",""+e.getMessage());
+                    AppLog.info("JSONException", "" + e.getMessage());
+                    Loader.Dissmiss();
                 }
             }
 
             @Override
             public void OnExecption(Exception ex) {
-
+                Loader.Dissmiss();
             }
 
             @Override

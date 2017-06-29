@@ -1,8 +1,6 @@
 package freewilder.rockme.com.freewilder.Json;
 
 import android.os.AsyncTask;
-import android.util.Log;
-
 import java.util.concurrent.TimeUnit;
 import freewilder.rockme.com.freewilder.Utils.AppLog;
 import okhttp3.MultipartBody;
@@ -16,21 +14,23 @@ import okhttp3.Response;
 
 public class URLPaser {
 
-    String BaseUrl="https://freewilder.com/";
+    String BaseUrl = "https://freewilder.com/";
 
 
-    public interface JSONResPonse{
+    public interface JSONResPonse {
         void OnSucess(String Response);
+
         void OnExecption(Exception ex);
+
         void OnFailed(String error);
     }
 
 
-    public void OnGetRequest(final String Parama, final JSONResPonse jsonResPonse){
+    public void OnGetRequest(final String Parama, final JSONResPonse jsonResPonse) {
         new AsyncTask<Void, Void, Void>() {
 
             private String respose = null;
-            private Exception exception=null;
+            private Exception exception = null;
 
             @Override
             protected void onPreExecute() {
@@ -42,8 +42,8 @@ public class URLPaser {
                 try {
                     if (!isCancelled()) {
 
-                        OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).connectTimeout(5000, TimeUnit.MILLISECONDS).build();
-                        Request request = new Request.Builder().url(BaseUrl+Parama).build();
+                        OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).connectTimeout(10000, TimeUnit.MILLISECONDS).build();
+                        Request request = new Request.Builder().url(BaseUrl + Parama).build();
                         Response response = client.newCall(request).execute();
 
                         respose = response.body().string();
@@ -56,7 +56,7 @@ public class URLPaser {
 //                       Loger.MSG("response", "respose_ww_body::" + response.body().string());
                     }
                 } catch (Exception e) {
-                    this.exception=e;
+                    this.exception = e;
                     e.printStackTrace();
                 }
                 return null;
@@ -65,10 +65,10 @@ public class URLPaser {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                if (!isCancelled() && exception==null) {
+                if (!isCancelled() && exception == null) {
                     jsonResPonse.OnSucess(respose);
 
-                }else {
+                } else {
                     jsonResPonse.OnExecption(exception);
                 }
             }
@@ -76,14 +76,10 @@ public class URLPaser {
     }
 
 
-
-
-
-    public void onPostMethod(final String url,final String params[],final String value[], final JSONResPonse jsonResPonse){
-        new AsyncTask<Void,Void,Void>()
-        {
+    public void onPostMethod(final String url, final String params[], final String value[], final JSONResPonse jsonResPonse) {
+        new AsyncTask<Void, Void, Void>() {
             private String respose = null;
-            private Exception exception=null;
+            private Exception exception = null;
 
             @Override
             protected void onPreExecute() {
@@ -95,7 +91,7 @@ public class URLPaser {
                 try {
                     if (!isCancelled()) {
 
-                        OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).connectTimeout(5000, TimeUnit.MILLISECONDS).build();
+                        OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).connectTimeout(10000, TimeUnit.MILLISECONDS).build();
 
                         MultipartBody.Builder buildernew = new MultipartBody.Builder()
                                 .setType(MultipartBody.FORM);
@@ -103,24 +99,25 @@ public class URLPaser {
 
                         for (int i = 0; i < params.length; i++) {
                             buildernew.addFormDataPart(params[i], value[i]);
-                            Log.i("params["+i+"]",value[i]);
+                            AppLog.info("params[" + i + "]", value[i]);
                         }
                         MultipartBody requestBody = buildernew.build();
-                        Request request = new Request.Builder().url(BaseUrl+url).post(requestBody).build();
-                        Log.i("url",BaseUrl+url);
+                        Request request = new Request.Builder().url(BaseUrl + url).post(requestBody).build();
+                        AppLog.info("url", BaseUrl + url);
+
                         Response response = client.newCall(request).execute();
 
                         respose = response.body().string();
 
                         AppLog.info(getClass().getName(), "respose_::" + respose);
-//                        Loger.MSG("response", "respose_ww_message::" + response.message());
-//                        Loger.MSG("response", "respose_ww_headers::" + response.headers());
-//                        Loger.MSG("response", "respose_ww_isRedirect::" + response.isRedirect());
-//                       Loger.MSG("response", "respose_ww_body::" + response.body().string());
+//                      AppLog.info("response", "respose_ww_message::" + response.message());
+//                      AppLog.info("response", "respose_ww_headers::" + response.headers());
+//                      AppLog.info("response", "respose_ww_isRedirect::" + response.isRedirect());
+//                      AppLog.info("response", "respose_ww_body::" + response.body().string());
 
                     }
                 } catch (Exception e) {
-                    this.exception=e;
+                    this.exception = e;
                     e.printStackTrace();
                 }
                 return null;
@@ -129,10 +126,10 @@ public class URLPaser {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                if (!isCancelled() && exception==null) {
+                if (!isCancelled() && exception == null) {
                     jsonResPonse.OnSucess(respose);
 
-                }else {
+                } else {
                     jsonResPonse.OnExecption(exception);
                 }
             }

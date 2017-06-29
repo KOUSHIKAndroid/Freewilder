@@ -5,14 +5,13 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import freewilder.rockme.com.freewilder.Activity.SignUpActivity;
 import freewilder.rockme.com.freewilder.R;
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 
 /**
  * Created by su on 6/13/17.
@@ -67,7 +66,7 @@ public class NameSignUpFragment extends Fragment {
 
                     }else {
                         input_layout_last_name.setErrorEnabled(false);
-                        Log.i("horiname",""+input_first_name.length());
+                        AppLog.info("horiname",""+input_first_name.length());
                         ((SignUpActivity)getActivity()).nextPage(1);
                     }
                 }

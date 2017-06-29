@@ -24,11 +24,12 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Adapter;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
+
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 
 public class IndexScroller {
 	
@@ -117,7 +118,7 @@ public class IndexScroller {
 			}
 		}catch (Exception e)
 		{
-			Log.e("INDEXLIST Catch ",""+e.getMessage());
+			AppLog.Error("INDEXLIST Catch ",""+e.getMessage());
 		}
 
 		

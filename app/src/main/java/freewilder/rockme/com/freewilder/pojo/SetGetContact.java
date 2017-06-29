@@ -3,7 +3,7 @@ package freewilder.rockme.com.freewilder.pojo;
 /**
  * Created by su on 24/8/15.
  */
-public class ContactList {
+public class SetGetContact {
     String Name;
     String EmailID;
     String PhotoUri;
@@ -17,7 +17,7 @@ public class ContactList {
         this.check = check;
     }
 
-    public ContactList() {
+    public SetGetContact() {
 
     }
 

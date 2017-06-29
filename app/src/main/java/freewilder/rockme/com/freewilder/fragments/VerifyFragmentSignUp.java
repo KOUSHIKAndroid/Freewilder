@@ -7,12 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import freewilder.rockme.com.freewilder.R;
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 
 /**
  * Created by su on 6/21/17.
@@ -59,14 +59,14 @@ public class VerifyFragmentSignUp extends Fragment{
         editText1.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // TODO Auto-generated method stub
-                Log.i("sb1"," "+sb.length());
-                Log.i("editText1"," "+editText1.length());
+                AppLog.info("sb1"," "+sb.length());
+                AppLog.info("editText1"," "+editText1.length());
 
                 if(sb.length()==0 && editText1.length()==1)
                 {
-                    Log.i("horibol"," "+s+" "+editText1);
+                    AppLog.info("horibol"," "+s+" "+editText1);
                     sb.append(s);
-                    Log.i("sb1"," "+sb.length());
+                    AppLog.info("sb1"," "+sb.length());
                     editText1.clearFocus();
                     editText2.requestFocus();
                     editText2.setCursorVisible(true);
@@ -92,7 +92,7 @@ public class VerifyFragmentSignUp extends Fragment{
                 //You can identify which key pressed buy checking keyCode value with KeyEvent.KEYCODE_
                 if(keyCode == KeyEvent.KEYCODE_DEL) {
                     //this is for backspace
-                    Log.i("del key","del key");
+                    AppLog.info("del key","del key");
                 }
                 return false;
             }
