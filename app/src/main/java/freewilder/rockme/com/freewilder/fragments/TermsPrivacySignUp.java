@@ -95,7 +95,6 @@ public class TermsPrivacySignUp extends Fragment {
                                 }
                             }
                     );
-
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
