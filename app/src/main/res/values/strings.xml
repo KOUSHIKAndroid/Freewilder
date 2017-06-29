@@ -63,5 +63,19 @@
     <string name="please_choose_male_or_female_at_least">Please Choose male or female at least</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="profile_personal_fragment_about_me">About Me</string>
+    <string name="profile_personal_fragment_school">School</string>
+    <string name="profile_personal_fragment_work">Work</string>
+    <string name="profile_personal_fragment_language">Language</string>
+    <string name="profile_personal_fragment_verified">Verified</string>
+    <string name="profile_description">Lorem Ipsum</string>
+    <string name="profile_name">John Doe</string>
+    <string name="profile_personal">Personal</string>
+    <string name="profile_service">Service</string>
+
+
+    <string name="profile_map">Map     </string>
+    <string name="profile_video">Video   </string>
+    <string name="profile_reviews">Reviews  </string>
 
 </resources>

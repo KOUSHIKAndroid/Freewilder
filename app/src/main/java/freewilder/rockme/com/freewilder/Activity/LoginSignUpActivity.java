@@ -15,13 +15,10 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-
 import freewilder.rockme.com.freewilder.Json.URLPaser;
 import freewilder.rockme.com.freewilder.Popups.AppPopup;
 import freewilder.rockme.com.freewilder.R;

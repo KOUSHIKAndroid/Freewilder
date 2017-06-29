@@ -29,6 +29,12 @@
 
         <item name="colorControlActivated">@color/colorGreen</item>
         <!-- EditText line color when EditText  in un-focus-->
+
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#FABC00</item>
+        <item name="colorControlActivated">#FABC00</item>
     </style>
 
 
