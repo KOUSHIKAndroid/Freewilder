@@ -113,6 +113,7 @@
         android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="send_invite"
         android:layout_margin="40dp"
         android:src="@drawable/ic_vector_send_mail"
         android:backgroundTint="@color/colorGreen"

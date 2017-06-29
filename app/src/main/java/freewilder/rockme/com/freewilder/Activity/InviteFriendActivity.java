@@ -31,6 +31,10 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.TimeZone;
+import freewilder.rockme.com.freewilder.Json.URLPaser;
 import freewilder.rockme.com.freewilder.R;
 import freewilder.rockme.com.freewilder.adapters.AdapterContactList;
 import freewilder.rockme.com.freewilder.customlistview.IndexableListView;
@@ -44,9 +48,17 @@ import freewilder.rockme.com.freewilder.pojo.ContactList;
 
 public class InviteFriendActivity extends AppCompatActivity {
 
+    AlertDialog alertDialog;
+
     private static final int REQUEST_CONTACTS = 1;
+
+    int count=0;
+
+    String InvitionEmailIDs = "";
+
     AdapterContactList Adapter;
     IndexableListView listviewContact;
+
     private static String[] PERMISSIONS_CONTACT = {
             Manifest.permission.READ_CONTACTS,
             Manifest.permission.WRITE_CONTACTS,
@@ -122,7 +134,7 @@ public class InviteFriendActivity extends AppCompatActivity {
         EDXfind.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                Log.i("TUCH",""+motionEvent.getAction());
+                Log.i("TOUCH",""+motionEvent.getAction());
                 EDXfind.clearFocus();
                 EDXfind.requestFocus();
                 return false;
@@ -192,7 +204,7 @@ public class InviteFriendActivity extends AppCompatActivity {
 
             return;
         } else {
-            Log.d("VERSION", "MARSMALLO");
+            Log.d("VERSION", "MARSHMALLOW");
             CheckContactPermission();
         }
 
@@ -212,7 +224,7 @@ public class InviteFriendActivity extends AppCompatActivity {
 
         ImageView img_cross= (ImageView) dialogView.findViewById(R.id.img_cross);
 
-        final AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog= dialogBuilder.create();
         //To prevent dialog box from getting dismissed on back key pressed use this
         alertDialog.setCancelable(false);
 
@@ -244,6 +256,7 @@ public class InviteFriendActivity extends AppCompatActivity {
                     }else {
                         input_layout_email.setErrorEnabled(false);
                         Toast.makeText(InviteFriendActivity.this,"submit",Toast.LENGTH_SHORT).show();
+                        SEND_INVITION_BY_MAIL(input_email.getText().toString()+",");
                     }
                 }
             }
@@ -394,5 +407,99 @@ public class InviteFriendActivity extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         finish();
+    }
+
+
+    public void send_invite(View SendInvite)
+    {
+        InvitionEmailIDs="";
+        count=0;
+
+        if ( AppController.getInstance().ContactListWithEmailID!=null) {
+            for (int i = 0; i <  AppController.getInstance().ContactListWithEmailID.size(); i++) {
+                if( AppController.getInstance().ContactListWithEmailID.get(i).isCheck()) {
+                    Log.d("CJE", "" + AppController.getInstance().ContactListWithEmailID.get(i).isCheck());
+                    InvitionEmailIDs = InvitionEmailIDs + AppController.getInstance().ContactListWithEmailID.get(i).getEmailID() + ",";
+                    count++;
+                }
+            }
+            Log.d("EMAIL=", InvitionEmailIDs);
+            if (count>0) {
+                SEND_INVITION_BY_MAIL(InvitionEmailIDs);
+            }else {
+                Toast.makeText(InviteFriendActivity.this, getResources().getString(R.string.chose_contacts), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void SEND_INVITION_BY_MAIL(final String invitionEmailIDs) {
+    ////////////////////////////////////add by suraj shaw//////////////////////////////////////
+
+        TimeZone tz=TimeZone.getDefault();
+        String url = "app_user_service/app_invite_email?"
+                + "&cur_id="+AppController.Curency+"&lang_id="+AppController.Lang_id+"&time_zone="+tz.getID();
+
+        String params[]={"email","user_id"};
+        String values[]={"" + invitionEmailIDs.substring(0, (invitionEmailIDs.length() - 1)),AppController.userid};
+
+        ///////////////////////////////////////////////////////////////////////////////////
+
+        Log.d("URL", url + "\n" + invitionEmailIDs);
+        new URLPaser().onPostMethod(url,params,values, new URLPaser.JSONResPonse(){
+
+            @Override
+            public void OnSucess(String Response) {
+                try {
+                    JSONObject jsonObject=new JSONObject(Response);
+                    Log.i("jsonObject",""+jsonObject);
+
+                    Toast.makeText(InviteFriendActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
+                    for (int i=0;i<AppController.getInstance().ContactListWithEmailID.size();i++) {
+                        AppController.getInstance().ContactListWithEmailID.get(i).setCheck(false);
+                    }
+                    Adapter.notifyDataSetChanged();
+                    InvitionEmailIDs = "";
+                    count=0;
+
+
+
+                    if(jsonObject.getString("response").equals("success"))
+                    {
+                        if (alertDialog != null) {
+                            alertDialog.dismiss();
+                            alertDialog = null;
+                        }
+                    }
+                    else {
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.i("JSONException",""+e.getMessage());
+                }
+            }
+
+            @Override
+            public void OnExecption(Exception ex) {
+
+            }
+
+            @Override
+            public void OnFailed(String error) {
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // User has pressed Back key. So hide the keyboard
+        InputMethodManager mgr = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(EDXfind.getWindowToken(), 0);
+        // TODO: Hide your view as you do it in your activity
     }
 }

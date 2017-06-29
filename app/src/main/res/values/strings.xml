@@ -59,5 +59,6 @@
     <string name="need_to_contact_permission_for_this_app">Need To Contact Permission for This App</string>
     <string name="read_contact_permission_available">Read Contact Permission Available</string>
     <string name="ok">OK</string>
+    <string name="chose_contacts">Choose Contacts</string>
 
 </resources>

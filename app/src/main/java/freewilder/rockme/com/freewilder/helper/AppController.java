@@ -15,6 +15,10 @@ public class AppController extends Application {
 
     //    public static String SITEURL = "http://esolz.co.in/lab6/freewilder/";
 
+    public static int Curency = 1;
+    public static int Lang_id = 1;
+    public static String userid = "30";
+
     private static AppController mInstance;
     public ArrayList<ContactList> ContactListWithEmailID;
 
