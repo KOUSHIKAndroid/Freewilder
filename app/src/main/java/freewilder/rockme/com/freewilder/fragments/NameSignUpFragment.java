@@ -67,6 +67,10 @@ public class NameSignUpFragment extends Fragment {
                     }else {
                         input_layout_last_name.setErrorEnabled(false);
                         AppLog.info("horiname",""+input_first_name.length());
+
+                        ((SignUpActivity)getActivity()).firstName=input_first_name.getText().toString();
+                        ((SignUpActivity)getActivity()).lastName=input_last_name.getText().toString();
+
                         ((SignUpActivity)getActivity()).nextPage(1);
                     }
                 }

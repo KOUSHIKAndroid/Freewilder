@@ -81,6 +81,10 @@ public class EmailPasswordSignUpFragment extends Fragment {
                             }else {
                                 input_layout_confirm_password.setErrorEnabled(false);
                                 if(input_password.getText().toString().equals(input_confirm_password.getText().toString())) {
+
+                                    ((SignUpActivity)getActivity()).email=input_email.getText().toString();
+                                    ((SignUpActivity)getActivity()).password=input_password.getText().toString();
+
                                     ((SignUpActivity) getActivity()).nextPage(2);
                                 }
                                 else {

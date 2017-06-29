@@ -18,6 +18,8 @@ import freewilder.rockme.com.freewilder.fragments.VerifyFragmentSignUp;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    public String firstName="",lastName="",email="",password="",gender="",dateOfBirth="";
+
     TextView tv_toolText;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;

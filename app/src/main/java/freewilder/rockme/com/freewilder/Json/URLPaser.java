@@ -44,15 +44,18 @@ public class URLPaser {
 
                         OkHttpClient client = new OkHttpClient.Builder().retryOnConnectionFailure(true).connectTimeout(10000, TimeUnit.MILLISECONDS).build();
                         Request request = new Request.Builder().url(BaseUrl + Parama).build();
+
+                        AppLog.info("url", BaseUrl + Parama);
+
                         Response response = client.newCall(request).execute();
 
                         respose = response.body().string();
 
 
                         AppLog.info(getClass().getName(), "respose_::" + respose);
-//                        Loger.MSG("response", "respose_ww_message::" + response.message());
-//                        Loger.MSG("response", "respose_ww_headers::" + response.headers());
-//                        Loger.MSG("response", "respose_ww_isRedirect::" + response.isRedirect());
+//                       Loger.MSG("response", "respose_ww_message::" + response.message());
+//                       Loger.MSG("response", "respose_ww_headers::" + response.headers());
+//                       Loger.MSG("response", "respose_ww_isRedirect::" + response.isRedirect());
 //                       Loger.MSG("response", "respose_ww_body::" + response.body().string());
                     }
                 } catch (Exception e) {

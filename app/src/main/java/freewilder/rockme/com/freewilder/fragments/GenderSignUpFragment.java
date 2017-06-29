@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import freewilder.rockme.com.freewilder.Activity.SignUpActivity;
 import freewilder.rockme.com.freewilder.R;
@@ -61,6 +62,7 @@ public class GenderSignUpFragment extends Fragment implements CompoundButton.OnC
         male_radio_button= (RadioButton) view.findViewById(R.id.male_radio_button);
         male_radio_button.setOnCheckedChangeListener(this);
 
+
         female_radio_button= (RadioButton) view.findViewById(R.id.female_radio_button);
         female_radio_button.setOnCheckedChangeListener(this);
 
@@ -68,7 +70,19 @@ public class GenderSignUpFragment extends Fragment implements CompoundButton.OnC
         tv_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((SignUpActivity)getActivity()).nextPage(3);
+
+                if(male_radio_button.isChecked() || female_radio_button.isChecked()) {
+                    if(male_radio_button.isChecked()){
+                        ((SignUpActivity) getActivity()).gender = ""+getResources().getString(R.string.male);
+                    }else{
+                        ((SignUpActivity) getActivity()).gender = ""+getResources().getString(R.string.female);
+                    }
+                    ((SignUpActivity)getActivity()).nextPage(3);
+                }
+                else {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.please_choose_male_or_female_at_least),Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
