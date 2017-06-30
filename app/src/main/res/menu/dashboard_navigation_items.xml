@@ -4,7 +4,7 @@
 
     <item android:id="@+id/action_dashboard"
         android:title="@string/menu_dashboard"
-        android:icon="@mipmap/ic_launcher" />
+        android:icon="@mipmap/ic_launcher_web" />
 
     <item android:id="@+id/action_search"
         android:title="@string/menu_search"
@@ -21,6 +21,6 @@
         />
     <item android:id="@+id/action_sidemenu"
         android:title="@string/menu_sidemenu"
-        android:icon="@mipmap/ic_launcher" />
+        android:icon="@drawable/ic_man_side_menu" />
 
 </menu>
