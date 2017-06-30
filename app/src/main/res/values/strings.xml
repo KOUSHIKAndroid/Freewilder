@@ -86,5 +86,10 @@
     <string name="filter_search_any_date">Any Date</string>
     <string name="search_filter_amenities_title">Amenities</string>
     <string name="search_filter_category_title">Category</string>
+    <string name="search_with_new_location">Search with New Location</string>
+    <string name="location">Location</string>
+    <string name="near_by">Near by</string>
+    <string name="location_name">Location Name</string>
+    <string name="search_from_history">Search from History</string>
 
 </resources>

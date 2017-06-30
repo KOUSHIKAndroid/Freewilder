@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.SerachFilterActivity"
+            android:name=".Activity.DashBoardActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".Activity.DashBoardActivity"
+            android:name=".Activity.SerachFilterActivity"
             android:windowSoftInputMode="stateHidden" />
 
 
