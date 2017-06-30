@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <freewilder.rockme.com.freewilder.custom_front.OpenSansExtraBold
+        android:id="@+id/tv_profile_fresh_bike"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:text="Fresh Bike"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_border_textview"/>
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tv_profile_fresh_bike"
+        android:layout_width="35dp"
+        android:layout_height="35dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/RL2"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_profile_fresh_bike"
+        android:layout_toRightOf="@id/img_profile">
+
+        <freewilder.rockme.com.freewilder.custom_front.OpenSansRegular
+            android:id="@+id/tv_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tom Garfield"
+            android:textSize="14sp"
+            android:textColor="@color/colorGreen"/>
+
+        <freewilder.rockme.com.freewilder.custom_front.OpenSansRegular
+            android:id="@+id/tv_profile_date"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"
+            android:text="May 9,2016 | 11:21 am"
+            android:layout_centerVertical="true"
+            />
+
+
+        <RatingBar
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_profile_date"
+            android:id="@+id/rate_profile_review"
+            android:layout_width="wrap_content"
+            android:rating="4.5"
+            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            android:layout_height="wrap_content"
+            android:theme="@style/RatingBar"/>
+
+    </RelativeLayout>
+
+
+
+    <ImageView
+        android:id="@+id/img_review_place"
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_toRightOf="@id/img_profile"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/RL2"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_profile_review_map_placeholder"/>
+
+    <freewilder.rockme.com.freewilder.custom_front.OpenSansRegular
+        android:id="@+id/tv_profile_address"
+        android:layout_toRightOf="@id/img_review_place"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RL2"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        android:text="71 pilgrim avenue | chevy chase,MD20815"/>
+
+    <freewilder.rockme.com.freewilder.custom_front.OpenSansRegular
+        android:id="@+id/tv_profile_description"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/tv_profile_address"
+        android:layout_toRightOf="@id/img_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s..."/>
+
+    <View
+        android:layout_below="@id/tv_profile_description"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#555555" />
+
+
+</RelativeLayout>

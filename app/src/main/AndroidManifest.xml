@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.LoginSignUpActivity"
+            android:name=".Activity.ProfileActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,6 +36,11 @@
 
         <activity
             android:name=".Activity.DashBoardActivity"
+            android:windowSoftInputMode="stateHidden" />
+
+
+        <activity
+            android:name=".Activity.LoginSignUpActivity"
             android:windowSoftInputMode="stateHidden" />
 
     </application>
