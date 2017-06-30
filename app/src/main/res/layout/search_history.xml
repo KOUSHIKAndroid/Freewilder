@@ -49,8 +49,8 @@
        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="5dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="3dp"
         >
 
         <LinearLayout
@@ -81,8 +81,8 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="5dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="3dp"
         >
 
         <RelativeLayout
@@ -143,8 +143,8 @@
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="5dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="3dp"
        >
 
         <RelativeLayout
@@ -213,7 +213,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorGray"/>
+                android:background="@color/colorToolbarGray"/>
 
         </RelativeLayout>
 
@@ -223,8 +223,8 @@
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="5dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="3dp"
         >
 
         <RelativeLayout
@@ -294,7 +294,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorGray"/>
+                android:background="@color/colorToolbarGray"/>
 
         </RelativeLayout>
 
@@ -304,8 +304,8 @@
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="5dp"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="3dp"
         >
 
         <RelativeLayout

@@ -9,6 +9,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import freewilder.rockme.com.freewilder.R;
 import freewilder.rockme.com.freewilder.adapters.DashboardRecyclerViewAdapter;
@@ -44,6 +46,28 @@ public class DashBoardActivity extends AppCompatActivity {
                 // handle desired action here
                 // One possibility of action is to replace the contents above the nav bar
                 // return true if you want the item to be displayed as the selected item
+
+                switch (item.getItemId()) {
+                    case R.id.action_dashboard:
+                        Toast.makeText(DashBoardActivity.this,"dashboard",Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.action_search:
+                        Toast.makeText(DashBoardActivity.this,"search",Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.action_collection:
+                        Toast.makeText(DashBoardActivity.this,"collection",Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.action_message:
+                        Toast.makeText(DashBoardActivity.this,"message",Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.action_sidemenu:
+                        Toast.makeText(DashBoardActivity.this,"sidemenu",Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 return true;
             }
         });

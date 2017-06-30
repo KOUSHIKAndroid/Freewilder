@@ -28,8 +28,13 @@
         </activity>
 
         <activity
+            android:name=".Activity.SearchHistoryActivity"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name=".Activity.SignUpActivity"
             android:windowSoftInputMode="stateHidden" />
+
         <activity
             android:name=".Activity.InviteFriendActivity"
             android:windowSoftInputMode="stateHidden" />
