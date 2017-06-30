@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/RLToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/colorToolbarGray">
+
+        <TextView
+            android:id="@+id/tv_toolbar"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="@string/search_filter_amenities_title"/>
+
+        <ImageView
+            android:id="@+id/img_cross"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:padding="18dp"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_invite_friend_cross"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorRed"
+        android:gravity="center"
+        android:text="@string/ok"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_margin="10dp"
+        android:layout_below="@+id/RLToolbar"
+        android:layout_above="@+id/tv_ok"
+        android:id="@+id/rcv_amenities"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+
+
+
+</RelativeLayout>

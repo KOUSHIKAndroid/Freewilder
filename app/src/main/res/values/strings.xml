@@ -84,5 +84,7 @@
     <string name="search_filter_price_range">Price range</string>
     <string name="search_filter_apply_filter">Apply Filter</string>
     <string name="filter_search_any_date">Any Date</string>
+    <string name="search_filter_amenities_title">Amenities</string>
+    <string name="search_filter_category_title">Category</string>
 
 </resources>
