@@ -77,5 +77,11 @@
     <string name="profile_map">Map     </string>
     <string name="profile_video">Video   </string>
     <string name="profile_reviews">Reviews  </string>
+    <string name="filter_reset_all">Reset All</string>
+    <string name="search_filter_choose_category">Choose Category</string>
+    <string name="search_filter_choose_keywords">Choose Keywords</string>
+    <string name="search_filter_amenities">Amenities (+4)</string>
+    <string name="search_filter_price_range">Price range</string>
+    <string name="search_filter_apply_filter">Apply Filter</string>
 
 </resources>

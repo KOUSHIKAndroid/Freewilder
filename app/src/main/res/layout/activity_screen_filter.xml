@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/RLToolbar"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/colorToolbarGray">
+
+        <TextView
+            android:id="@+id/tv_toolbar"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="@string/filter_reset_all"/>
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:padding="18dp"
+            android:layout_width="54dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_invite_friend_cross"/>
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_below="@+id/RLToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="54dp">
+
+
+                <RelativeLayout
+                    android:id="@+id/RLSearchProduct"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <EditText
+                        android:paddingLeft="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:theme="@style/MyEditText"/>
+
+
+                    <ImageView
+                        android:layout_marginLeft="5dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_search_search_filter"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view_horizontal_line_one"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/RLSearchProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorToolbarGray"/>
+
+                <RelativeLayout
+                    android:id="@+id/RLPlaceSearch"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_below="@+id/view_horizontal_line_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <EditText
+                        android:paddingLeft="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:theme="@style/MyEditText"/>
+
+
+                    <ImageView
+                        android:layout_marginLeft="5dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_search_filter_placeholder"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view_horizontal_line_two"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/RLPlaceSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorToolbarGray"/>
+
+                <LinearLayout
+                    android:id="@+id/LLcalendar"
+                    android:layout_below="@+id/view_horizontal_line_two"
+                    android:weightSum="2"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp">
+
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:src="@drawable/ic_search_filter_calendar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="05/03/2017"/>
+
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_search_filter_calender_down_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:id="@+id/view_vertical_line_one"
+                        android:layout_below="@+id/RLPlaceSearch"
+                        android:layout_width="1dp"
+                        android:layout_height="18dp"
+                        android:background="@color/colorToolbarGray"/>
+
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:layout_width="0dp"
+                        android:orientation="horizontal"
+                        android:layout_height="wrap_content">
+
+
+                        <ImageView
+                            android:src="@drawable/ic_search_filter_calendar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="05/03/2017"/>
+
+
+                        <ImageView
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_search_filter_calender_down_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view_horizontal_line_three"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/LLcalendar"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorToolbarGray"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/RLcategory"
+                    android:layout_below="@+id/view_horizontal_line_three"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/my_custom_rectangle_background">
+
+                    <TextView
+                        android:padding="20dp"
+                        android:text="@string/search_filter_choose_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:padding="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_search_filter_down_arrow"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/RLkeywords"
+                    android:layout_below="@+id/RLcategory"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/my_custom_rectangle_background">
+
+                    <TextView
+                        android:padding="20dp"
+                        android:text="@string/search_filter_choose_keywords"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:padding="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_search_filter_down_arrow"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/RLaminities"
+                    android:layout_below="@+id/RLkeywords"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/my_custom_rectangle_background">
+
+                    <TextView
+                        android:padding="20dp"
+                        android:text="@string/search_filter_amenities"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:padding="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_search_filter_right_arrow"/>
+
+                </RelativeLayout>
+
+
+
+                <TextView
+                    android:id="@+id/tv_price_range_name"
+                    android:layout_below="@+id/RLaminities"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/search_filter_price_range"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:id="@+id/tv_price_range_value"
+                    android:layout_below="@+id/tv_price_range_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="PLN25-PLN2,200+"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_next"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@color/colorRed"
+                android:gravity="center"
+                android:text="@string/search_filter_apply_filter"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+</RelativeLayout>

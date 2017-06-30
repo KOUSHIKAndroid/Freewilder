@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.ProfileActivity"
+            android:name=".Activity.SerachFilterActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,6 +41,10 @@
 
         <activity
             android:name=".Activity.LoginSignUpActivity"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".Activity.ProfileActivity"
             android:windowSoftInputMode="stateHidden" />
 
     </application>
