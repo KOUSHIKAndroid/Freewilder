@@ -91,5 +91,6 @@
     <string name="near_by">Near by</string>
     <string name="location_name">Location Name</string>
     <string name="search_from_history">Search from History</string>
+    <string name="search_history">Search History</string>
 
 </resources>
