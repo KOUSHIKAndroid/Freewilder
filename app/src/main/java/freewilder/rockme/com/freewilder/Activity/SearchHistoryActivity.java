@@ -41,6 +41,5 @@ public class SearchHistoryActivity extends AppCompatActivity {
 
         searchHistoryLocationAdapter=new SearchHistoryLocationAdapter(this,locationHistoryArrayList);
         rcv_search_history.setAdapter(searchHistoryLocationAdapter);
-
     }
 }
