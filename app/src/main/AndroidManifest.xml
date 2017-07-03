@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.DashBoardActivity"
+            android:name=".Activity.SearchHistoryActivity"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".Activity.SearchFilterActivity"
+            android:name=".Activity.DashBoardActivity"
             android:windowSoftInputMode="stateHidden" />
 
         <activity
@@ -40,7 +40,7 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".Activity.SearchHistoryActivity"
+            android:name=".Activity.SearchFilterActivity"
             android:windowSoftInputMode="stateHidden" />
 
 
