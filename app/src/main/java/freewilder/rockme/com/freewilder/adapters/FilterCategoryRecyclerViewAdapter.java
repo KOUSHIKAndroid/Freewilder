@@ -28,7 +28,29 @@ public class FilterCategoryRecyclerViewAdapter extends RecyclerView.Adapter<Filt
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        holder.tv_name.setText(filterCategoryArrayList.get(position).getCategoryName());
+
+        if(filterCategoryArrayList.get(position).isCheck()){
+            holder.img_check.setVisibility(View.VISIBLE);
+        }
+        else {
+            holder.img_check.setVisibility(View.GONE);
+        }
+
+        holder.totalview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(filterCategoryArrayList.get(position).isCheck()){
+                    filterCategoryArrayList.get(position).setCheck(false);
+                }
+                else {
+                    filterCategoryArrayList.get(position).setCheck(true);
+                }
+                notifyDataSetChanged();
+            }
+        });
 
     }
 
@@ -38,12 +60,14 @@ public class FilterCategoryRecyclerViewAdapter extends RecyclerView.Adapter<Filt
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+        View totalview;
         TextView tv_name;
         ImageView img_check;
         public MyViewHolder(View itemView) {
             super(itemView);
             tv_name= (TextView) itemView.findViewById(R.id.tv_name);
             img_check= (ImageView) itemView.findViewById(R.id.img_check);
+            totalview=itemView;
         }
     }
 }
