@@ -10,17 +10,18 @@
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Amenities1"/>
+        android:hint="Category 1"/>
 
 
-    <CheckBox
-        android:id="@+id/cb_value"
+    <ImageView
+        android:id="@+id/img_check"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_checked_filter_category_green"/>
 
     <View
         android:layout_alignParentBottom="true"

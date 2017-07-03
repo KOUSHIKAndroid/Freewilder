@@ -27,7 +27,7 @@ public class AmenitiesRecyclerViewAdapter extends RecyclerView.Adapter<Amenities
 
     @Override
     public AmenitiesRecyclerViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AmenitiesRecyclerViewAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_amenities_child_view, parent, false));
+        return new AmenitiesRecyclerViewAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_filter_amenities_child_view, parent, false));
     }
 
     @Override
