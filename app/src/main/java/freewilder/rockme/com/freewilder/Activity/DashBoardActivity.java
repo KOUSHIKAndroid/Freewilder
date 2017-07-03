@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import freewilder.rockme.com.freewilder.R;
 import freewilder.rockme.com.freewilder.adapters.DashboardRecyclerViewAdapter;
