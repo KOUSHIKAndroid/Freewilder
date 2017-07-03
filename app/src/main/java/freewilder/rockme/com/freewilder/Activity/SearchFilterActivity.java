@@ -27,7 +27,7 @@ import freewilder.rockme.com.freewilder.pojo.SetGetFilterCategory;
  * Created by su on 6/30/17.
  */
 
-public class SerachFilterActivity extends AppCompatActivity {
+public class SearchFilterActivity extends AppCompatActivity {
 
     RelativeLayout RLcategory,RLkeywords,RLaminities;
 
@@ -52,21 +52,21 @@ public class SerachFilterActivity extends AppCompatActivity {
         RLaminities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogAminities(SerachFilterActivity.this);
+                showDialogAminities(SearchFilterActivity.this);
             }
         });
 
         RLcategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogCategory(SerachFilterActivity.this);
+                showDialogCategory(SearchFilterActivity.this);
             }
         });
 
         RLkeywords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogKeyword(SerachFilterActivity.this);
+                showDialogKeyword(SearchFilterActivity.this);
             }
         });
 

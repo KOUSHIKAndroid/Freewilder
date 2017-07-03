@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import freewilder.rockme.com.freewilder.R;
 import freewilder.rockme.com.freewilder.pojo.SetGetFilterAmenities;
 
