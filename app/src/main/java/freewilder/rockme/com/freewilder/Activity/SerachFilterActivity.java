@@ -2,7 +2,6 @@ package freewilder.rockme.com.freewilder.Activity;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,17 +12,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-
 import java.util.ArrayList;
-
 import freewilder.rockme.com.freewilder.R;
-import freewilder.rockme.com.freewilder.adapters.AmenitiesRecyclerViewAdapter;
-import freewilder.rockme.com.freewilder.adapters.FilterCategoryRecyclerViewAdapter;
-import freewilder.rockme.com.freewilder.pojo.SetGetAmenitiesFilter;
+import freewilder.rockme.com.freewilder.adapters.AmenitiesFilterRecyclerViewAdapter;
+import freewilder.rockme.com.freewilder.adapters.CategoryFilterRecyclerViewAdapter;
+import freewilder.rockme.com.freewilder.pojo.SetGetFilterAmenities;
 import freewilder.rockme.com.freewilder.pojo.SetGetFilterCategory;
 
 /**
@@ -34,10 +29,10 @@ public class SerachFilterActivity extends AppCompatActivity {
 
     RelativeLayout RLcategory,RLkeywords,RLaminities;
 
-    AmenitiesRecyclerViewAdapter amenitiesRecyclerViewAdapter;
-    FilterCategoryRecyclerViewAdapter filterCategoryRecyclerViewAdapter;
+    AmenitiesFilterRecyclerViewAdapter amenitiesFilterRecyclerViewAdapter;
+    CategoryFilterRecyclerViewAdapter categoryFilterRecyclerViewAdapter;
 
-    ArrayList<SetGetAmenitiesFilter> amenitiesFilterArrayList;
+    ArrayList<SetGetFilterAmenities> amenitiesFilterArrayList;
     ArrayList<SetGetFilterCategory> filterCategoryArrayList;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,10 +62,10 @@ public class SerachFilterActivity extends AppCompatActivity {
         filterCategoryArrayList=new ArrayList<>();
 
         for(int i=0;i<20;i++){
-            SetGetAmenitiesFilter setGetAmenitiesFilter = new SetGetAmenitiesFilter();
-            setGetAmenitiesFilter.setCheck(false);
-            setGetAmenitiesFilter.setName("Amenities"+i);
-            amenitiesFilterArrayList.add(setGetAmenitiesFilter);
+            SetGetFilterAmenities setGetFilterAmenities = new SetGetFilterAmenities();
+            setGetFilterAmenities.setCheck(false);
+            setGetFilterAmenities.setName("Amenities"+i);
+            amenitiesFilterArrayList.add(setGetFilterAmenities);
         }
 
         for(int i=0;i<20;i++){
@@ -113,8 +108,8 @@ public class SerachFilterActivity extends AppCompatActivity {
         rcv_amenities = (RecyclerView) dialog.findViewById(R.id.rcv_amenities);
         rcv_amenities.setLayoutManager(new LinearLayoutManager(this));
 
-        amenitiesRecyclerViewAdapter = new AmenitiesRecyclerViewAdapter(this, amenitiesFilterArrayList);
-        rcv_amenities.setAdapter(amenitiesRecyclerViewAdapter);
+        amenitiesFilterRecyclerViewAdapter = new AmenitiesFilterRecyclerViewAdapter(this, amenitiesFilterArrayList);
+        rcv_amenities.setAdapter(amenitiesFilterRecyclerViewAdapter);
 
         img_cross.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,8 +152,8 @@ public class SerachFilterActivity extends AppCompatActivity {
         rcv_category= (RecyclerView) dialog.findViewById(R.id.rcv_category);
         rcv_category.setLayoutManager(new LinearLayoutManager(this));
 
-        filterCategoryRecyclerViewAdapter=new FilterCategoryRecyclerViewAdapter(this,filterCategoryArrayList);
-        rcv_category.setAdapter(filterCategoryRecyclerViewAdapter);
+        categoryFilterRecyclerViewAdapter =new CategoryFilterRecyclerViewAdapter(this,filterCategoryArrayList);
+        rcv_category.setAdapter(categoryFilterRecyclerViewAdapter);
 
 
 

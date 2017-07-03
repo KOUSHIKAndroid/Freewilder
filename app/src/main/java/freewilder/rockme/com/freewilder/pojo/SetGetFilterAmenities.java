@@ -4,7 +4,7 @@ package freewilder.rockme.com.freewilder.pojo;
  * Created by su on 6/30/17.
  */
 
-public class SetGetAmenitiesFilter {
+public class SetGetFilterAmenities {
     String name;
     boolean check;
 

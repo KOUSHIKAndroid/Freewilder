@@ -11,27 +11,27 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import freewilder.rockme.com.freewilder.R;
-import freewilder.rockme.com.freewilder.pojo.SetGetAmenitiesFilter;
+import freewilder.rockme.com.freewilder.pojo.SetGetFilterAmenities;
 
 /**
  * Created by su on 6/30/17.
  */
 
-public class AmenitiesRecyclerViewAdapter extends RecyclerView.Adapter<AmenitiesRecyclerViewAdapter.MyViewHolder> {
+public class AmenitiesFilterRecyclerViewAdapter extends RecyclerView.Adapter<AmenitiesFilterRecyclerViewAdapter.MyViewHolder> {
     Context context;
-    ArrayList<SetGetAmenitiesFilter> amenitiesFilterArrayList;
-    public AmenitiesRecyclerViewAdapter(Context context,ArrayList<SetGetAmenitiesFilter> amenitiesFilterArrayList){
+    ArrayList<SetGetFilterAmenities> amenitiesFilterArrayList;
+    public AmenitiesFilterRecyclerViewAdapter(Context context, ArrayList<SetGetFilterAmenities> amenitiesFilterArrayList){
         this.context=context;
         this.amenitiesFilterArrayList=amenitiesFilterArrayList;
     }
 
     @Override
-    public AmenitiesRecyclerViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AmenitiesRecyclerViewAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_filter_amenities_child_view, parent, false));
+    public AmenitiesFilterRecyclerViewAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new AmenitiesFilterRecyclerViewAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_filter_amenities_child_view, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(AmenitiesRecyclerViewAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(AmenitiesFilterRecyclerViewAdapter.MyViewHolder holder, final int position) {
         holder.tv_name.setText(amenitiesFilterArrayList.get(position).getName());
 
         if(amenitiesFilterArrayList.get(position).isCheck()){

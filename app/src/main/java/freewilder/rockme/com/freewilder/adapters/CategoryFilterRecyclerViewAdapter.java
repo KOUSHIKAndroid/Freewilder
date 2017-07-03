@@ -15,16 +15,16 @@ import freewilder.rockme.com.freewilder.pojo.SetGetFilterCategory;
  * Created by su on 7/3/17.
  */
 
-public class FilterCategoryRecyclerViewAdapter extends RecyclerView.Adapter<FilterCategoryRecyclerViewAdapter.MyViewHolder> {
+public class CategoryFilterRecyclerViewAdapter extends RecyclerView.Adapter<CategoryFilterRecyclerViewAdapter.MyViewHolder> {
     Context context;
     ArrayList<SetGetFilterCategory> filterCategoryArrayList;
-    public FilterCategoryRecyclerViewAdapter(Context context,ArrayList<SetGetFilterCategory> filterCategoryArrayList ){
+    public CategoryFilterRecyclerViewAdapter(Context context, ArrayList<SetGetFilterCategory> filterCategoryArrayList ){
         this.context=context;
         this.filterCategoryArrayList=filterCategoryArrayList;
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new FilterCategoryRecyclerViewAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_filter_category_child_view, parent, false));
+        return new CategoryFilterRecyclerViewAdapter.MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_filter_category_child_view, parent, false));
     }
 
     @Override
