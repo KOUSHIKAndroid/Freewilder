@@ -13,13 +13,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import freewilder.rockme.com.freewilder.R;
+import freewilder.rockme.com.freewilder.Utils.AppLog;
 import freewilder.rockme.com.freewilder.adapters.AmenitiesFilterRecyclerViewAdapter;
 import freewilder.rockme.com.freewilder.adapters.CategoryFilterRecyclerViewAdapter;
+import freewilder.rockme.com.freewilder.helper.RangeSeekBar;
 import freewilder.rockme.com.freewilder.pojo.SetGetFilterAmenities;
 import freewilder.rockme.com.freewilder.pojo.SetGetFilterCategory;
 
@@ -28,6 +30,8 @@ import freewilder.rockme.com.freewilder.pojo.SetGetFilterCategory;
  */
 
 public class SearchFilterActivity extends AppCompatActivity {
+
+    RangeSeekBar<Long> seekBarSize;
 
     RelativeLayout RLcategory,RLkeywords,RLaminities;
 
@@ -39,6 +43,10 @@ public class SearchFilterActivity extends AppCompatActivity {
 
     ArrayList<SetGetFilterCategory> filterCategoryArrayList;
     ArrayList<SetGetFilterCategory> filterKeywordsArrayList;
+
+    LinearLayout linear_layout_seek_bar_size;
+    String LowPriceSize = "";
+    String HighPriceSize = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -95,6 +103,9 @@ public class SearchFilterActivity extends AppCompatActivity {
             setGetFilterKeywords.setCategoryName("Keywords"+i);
             filterKeywordsArrayList.add(setGetFilterKeywords);
         }
+
+        linear_layout_seek_bar_size= (LinearLayout)findViewById(R.id.linear_layout_seek_bar_size);
+        addSeekbarSize(linear_layout_seek_bar_size);
     }
 
 
@@ -236,6 +247,29 @@ public class SearchFilterActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+
+    public void addSeekbarSize(LinearLayout linear_layout_seek_bar_size){
+        seekBarSize = new RangeSeekBar<Long>(Long.parseLong("100"), Long.parseLong("900"), this);
+        linear_layout_seek_bar_size.addView(seekBarSize);
+
+        seekBarSize.setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener<Long>() {
+            @Override
+            public void onRangeSeekBarValuesChanged(RangeSeekBar<?> bar, Long minValue, Long maxValue) {
+                LowPriceSize = minValue.toString();
+                HighPriceSize = maxValue.toString();
+
+                AppLog.info("LowPriceBudget",""+LowPriceSize);
+                AppLog.info("HighPriceSizeBudget",""+HighPriceSize);
+            }
+
+            @Override
+            public void onRangeSeekBarValuesChanging(RangeSeekBar<?> bar, int minValue, int maxValue) {
+
+            }
+        });
+
     }
 
 }
