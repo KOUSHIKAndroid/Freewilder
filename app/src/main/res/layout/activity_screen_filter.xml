@@ -37,16 +37,13 @@
         android:layout_below="@+id/RLToolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:layout_marginBottom="54dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="54dp">
+                >
 
 
                 <RelativeLayout
@@ -315,21 +312,17 @@
 
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/tv_next"
-                android:layout_alignParentBottom="true"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:background="@color/colorRed"
-                android:gravity="center"
-                android:text="@string/search_filter_apply_filter"
-                android:textColor="@color/colorWhite"
-                android:textSize="20sp" />
-
-        </RelativeLayout>
-
-
-
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_next"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/colorRed"
+        android:gravity="center"
+        android:text="@string/search_filter_apply_filter"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp" />
 
 </RelativeLayout>
