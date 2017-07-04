@@ -14,7 +14,6 @@ import android.support.v7.widget.AppCompatImageView;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import java.math.BigDecimal;
-
 import freewilder.rockme.com.freewilder.R;
 
 
